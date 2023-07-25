@@ -5,3 +5,9 @@ $fa-font-path: '../webfonts';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
 
 @import 'bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+body{
+    font-family: 'Kumbh Sans', sans-serif;
+}
