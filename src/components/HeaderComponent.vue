@@ -3,9 +3,22 @@
         <nav class="d-flex justify-content-between align-items-center p-4">
             <div class="d-flex align-items-center gap-3">
                 <div class="hamburger">
-                    <img src="img/icon-menu.svg" alt="hamburger-menu">
+                    <img src="img/icon-menu.svg" alt="hamburger-menu" v-if="this.menuOpen === false" @click="toggleMenu">
+                    <div v-if="this.menuOpen === true">
+                        <div class="menu-open">
+                            <img src="img/icon-close.svg" alt="icon-close" class="mb-5 mt-2 ms-2" @click="toggleMenu">
+                            <ul class="d-flex flex-column fw-semibold text-capitalize list-unstyled gap-4 mb-0 ms-2">
+                                <li>collections</li>
+                                <li>men</li>
+                                <li>women</li>
+                                <li>about</li>
+                                <li>contact</li>
+                            </ul>
+                        </div>
+                        <div class="layover"></div>
+                    </div>
                 </div>
-                <div class="box-logo d-flex align-items-center">
+                <div class="box-logo d-flex align-items-center" v-if="this.menuOpen === false">
                     <img src="img/logo.svg" alt="logo">
                 </div>
                 <div class="navbar-desk d-none">
@@ -32,7 +45,19 @@
 
 <script>
     export default {
-        name: 'HeaderComponent'
+        name: 'HeaderComponent',
+        data() {
+            return{
+                menuOpen: false,
+            }
+        },
+        methods: {
+            toggleMenu() {
+                this.menuOpen = !this.menuOpen
+                console.log(this.menuOpen)
+            }
+        }
+        
     }
 </script>
 
@@ -44,6 +69,22 @@
     .user-picture{
         max-width: 25px;
         max-height: 25px;
+    }
+    .menu-open{
+        height: 100vh;
+        width: 65%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 25px 30px;
+    }
+    .layover{
+        height: 100vh;
+        width: 35%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.450);
     }
     @media screen and (min-width: 992px) {
         .hamburger{
