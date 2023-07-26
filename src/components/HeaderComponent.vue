@@ -77,12 +77,14 @@ import { store } from '../data/store'
         max-height: 25px;
     }
     .menu-open{
+        background-color: white;
         height: 100vh;
         width: 65%;
         position: absolute;
         top: 0;
         left: 0;
         padding: 25px 30px;
+        z-index: 999;
     }
     .layover{
         height: 100vh;
@@ -91,6 +93,7 @@ import { store } from '../data/store'
         top: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.450);
+        z-index: 999;
     }
     @media screen and (min-width: 992px) {
         .hamburger{
