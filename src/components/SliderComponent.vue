@@ -14,7 +14,7 @@
     </div>
     <div class="thumbnail d-none w-100">
         <div class="d-flex justify-content-between mt-5" v-for="product in store.products">
-            <div class="box-thumb" v-for="(item,index) in product.images">
+            <div class="box-thumb" :class="{'selected' : store.imageSelected === index}" v-for="(item,index) in product.images" @click="currentImage(index)">
                 <img :src="'img/' + item" :alt="product.name">
             </div>
         </div>
@@ -38,12 +38,18 @@ import {store} from '../data/store.js'
             },
             goBack() {
                 this.$emit('previous-image')
+            },
+            currentImage(index) {
+                store.imageSelected = index;
+                this.$emit('selected')
+                console.log(index)
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/styles/partials/variables' as *;
     .slider{
         position: relative;
         .box-image{
@@ -89,11 +95,17 @@ import {store} from '../data/store.js'
         .box-thumb{
             width: 100px;
             height: 100px;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             img{
                 width: 100%;
                 height: 100%;
+            }
+        }
+        .selected{
+            border: 3px solid $orange;
+            img{
+                opacity: 0.40;
             }
         }
     }

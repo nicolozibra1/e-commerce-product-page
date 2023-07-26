@@ -26,5 +26,6 @@ export const store = reactive({
     ],
 
     // VARIABLES DATA
+    imageSelected: 0,
     quantityAdded: 0
 })

@@ -1,8 +1,8 @@
 <template>
-    <div v-for="product in store.products" class="d-flex justify-content-center">
+    <div v-for="(product, index) in store.products" class="d-flex justify-content-center">
         <div class="row container d-flex justify-content-center align-items-center">
             <div class="col-12 col-xxl-6">
-                <SliderComponent :image="product.images[this.index]" @next-image="goNext" @previous-image="goBack" />
+                <SliderComponent :image="product.images[this.index]" @next-image="goNext" @previous-image="goBack" @selected="currentImage" />
             </div>
             <div class="col-12 col-xxl-6">
                 <div class="product-info p-3">
@@ -75,6 +75,9 @@ export default {
                 }
                 console.log(store.products[i].images[this.index])
             }
+        },
+        currentImage() {
+            this.index = store.imageSelected
         },
         discountCalculator() {
             for (let i = 0; i < store.products.length; i++) {
