@@ -27,7 +27,7 @@
                     <span class="add" @click="chooseQuantity('increase')">+</span>
                 </div>
                 <div class="add2cart d-flex justify-content-center align-items-center mx-3 mt-3">
-                    <button class="btn text-white" @click="addToCart">
+                    <button class="btn text-white" @click="addToCart(product, product.id)">
                         <img src="img/icon-cart.svg" alt="icon-cart">
                         Add to cart
                     </button>
@@ -82,6 +82,7 @@ export default {
         discountCalculator() {
             for (let i = 0; i < store.products.length; i++) {
                 this.discountPrice = (store.products[i].price * store.products[i].discount / 100).toFixed(2);
+                store.products[i].price = this.discountPrice
             }
         },
         chooseQuantity(qty) {
@@ -95,8 +96,22 @@ export default {
                 this.quantityChoosed = 0
             }
         },
-        addToCart() {
+        addToCart(product, id) {
             store.quantityAdded = this.quantityChoosed
+            if(store.cart.length === 0) {
+                store.cart.push(product)
+            }
+            else if(store.cart.length > 0) {
+                store.cart.forEach(item => {
+                    if(item.id === id) {
+                        console.log('non aggiungo altro ci sono già')
+                    }
+                    else {
+                        store.cart.push(product)
+                    }
+                })
+            }
+            console.log(store.cart)
         }
     },
     mounted() {

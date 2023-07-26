@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="d-flex align-items-center gap-3">
-                <div class="cart">
+                <div class="cart" @click="toggleCart">
                     <img src="img/icon-cart.svg" alt="cart">
                 </div>
                 <div class="user-picture d-flex align-items-center pt-1">
@@ -44,10 +44,13 @@
 </template>
 
 <script>
+import { store } from '../data/store'
+
     export default {
         name: 'HeaderComponent',
         data() {
             return{
+                store,
                 menuOpen: false,
             }
         },
@@ -55,6 +58,9 @@
             toggleMenu() {
                 this.menuOpen = !this.menuOpen
                 console.log(this.menuOpen)
+            },
+            toggleCart(){
+                store.cartOpen = !store.cartOpen
             }
         }
         
