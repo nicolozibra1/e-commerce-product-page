@@ -2,6 +2,7 @@ import {reactive} from 'vue';
 
 export const store = reactive({
 
+    // ARRAYS DATA
     products: [
         {
             name: 'Fall Limited Edition Sneakers',
@@ -23,4 +24,7 @@ export const store = reactive({
             ]
         },
     ],
+
+    // VARIABLES DATA
+    quantityAdded: 0
 })
