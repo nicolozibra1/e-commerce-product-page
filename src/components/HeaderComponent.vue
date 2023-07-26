@@ -103,4 +103,13 @@
             margin-right: 40px;
         }
     }
+    @media screen and (min-width: 1440px) {
+        header{
+            padding: 20px 0;
+            border-bottom: 1px solid $grayish-blue;
+        }
+        nav{
+            padding: 20px 0 !important;
+        }
+    }
 </style>

@@ -12,6 +12,14 @@
             </div>
         </div>
     </div>
+    <div class="thumbnail d-none w-100">
+        <div class="d-flex justify-content-between mt-5" v-for="product in store.products">
+            <div class="box-thumb" v-for="(item,index) in product.images">
+                <img :src="'img/' + item" :alt="product.name">
+            </div>
+        </div>
+    </div>
+    
 </template>
 
 <script>
@@ -45,6 +53,9 @@ import {store} from '../data/store.js'
             @media screen and (min-width: 768px) {
                 height: 55vh;
             }
+            @media screen and (min-width: 1440px) {
+                border-radius: 20px;
+            }
             img{
                 width: 100%;
                 height: 100%;
@@ -57,6 +68,9 @@ import {store} from '../data/store.js'
             top: calc(50% - 20px);
             left: 0;
             width: 100%;
+            @media screen and (min-width: 1440px) {
+                display: none !important;
+            }
             .previous, .next{
                 width: 40px;
                 height: 40px;
@@ -65,6 +79,21 @@ import {store} from '../data/store.js'
                 img{
                     width: 25%;
                 }
+            }
+        }
+    }
+    .thumbnail{
+        @media screen and (min-width: 1440px) {
+            display: inline-block !important;
+        }
+        .box-thumb{
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            img{
+                width: 100%;
+                height: 100%;
             }
         }
     }
