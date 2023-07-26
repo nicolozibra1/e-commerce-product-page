@@ -1,6 +1,6 @@
 <template>
     <div v-for="(product, index) in store.products" class="d-flex justify-content-center">
-        <div class="row container d-flex justify-content-center align-items-center">
+        <div class="row container-lg d-flex justify-content-center align-items-center">
             <div class="col-12 col-xxl-6">
                 <SliderComponent :image="product.images[this.index]" @next-image="goNext" @previous-image="goBack" @selected="currentImage" />
             </div>
@@ -151,6 +151,12 @@ h6 {
 
     img {
         filter: brightness(0) invert(1);
+    }
+}
+@media screen and (max-width: 576px) {
+    .row, .col-12{
+        margin: 0 !important;
+        padding: 0 !important;
     }
 }
 

@@ -56,7 +56,7 @@ import {store} from '../data/store.js'
             width: 100%;
             height: 35vh;
             overflow: hidden;
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: 576px) {
                 height: 55vh;
             }
             @media screen and (min-width: 1440px) {
