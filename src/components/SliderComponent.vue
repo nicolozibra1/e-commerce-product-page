@@ -40,11 +40,16 @@ import {store} from '../data/store.js'
         position: relative;
         .box-image{
             width: 100%;
-            height: 320px;
+            height: 35vh;
             overflow: hidden;
+            @media screen and (min-width: 768px) {
+                height: 55vh;
+            }
             img{
                 width: 100%;
-                object-fit: contain;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
             }
         }
         .icon{
