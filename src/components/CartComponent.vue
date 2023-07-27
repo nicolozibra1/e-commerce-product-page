@@ -1,11 +1,11 @@
 <template>
-    <div class="cart">
+    <div class="cart" v-if="store.cart.length > 0">
         <div class="card rounded-3">
             <div class="card-header bg-white d-flex align-items-center p-3">
                 <h6 class="text-capitalize fw-semibold m-0">cart</h6>
             </div>
             <div class="card-body p-4">
-                <div class="row my-3" v-for="product in store.cart">
+                <div class="row my-3" v-if="store.cart.length > 0">
                     <div class="col-12 product d-flex justify-content-between align-items-center">
                         <img :src="'img/' + image" :alt="name">
                         <div class="product-detail">
@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="img/icon-delete.svg" alt="icon-delete" class="icon">
+                        <img src="img/icon-delete.svg" alt="icon-delete" class="icon" @click="removeProduct(index)">
                     </div>
                 </div>
                 <button class="btn checkout text-capitalize text-white fw-semibold my-2">checkout</button>
@@ -39,7 +39,9 @@ export default {
         }
     },
     methods: {
-        
+        removeProduct(index) {
+            store.cart.splice(index, 1);
+        }
     },
 }
 </script>
