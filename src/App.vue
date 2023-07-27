@@ -2,7 +2,7 @@
   <HeaderComponent />
   <SingleProduct />
   <div v-if="store.cartOpen" class="cart-container d-flex justify-content-center">
-    <CartComponent v-for="product in store.cart" :image="product.images[0]" :name="product.name" :price="product.price" class="cart" />
+    <CartComponent v-for="product in store.cart" :image="product.images[0]" :name="product.name" :price="product.finalPrice" class="cart" />
   </div>
 </template>
 

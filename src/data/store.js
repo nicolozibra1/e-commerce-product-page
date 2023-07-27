@@ -11,6 +11,7 @@ export const store = reactive({
             brand: 'sneaker company',
             price: 250.00,
             discount: 50,
+            finalPrice: undefined, 
             images: [
                 'image-product-1.jpg',
                 'image-product-2.jpg',
@@ -30,5 +31,6 @@ export const store = reactive({
     imageSelected: 0,
     quantityAdded: 0,
     cart: [],
-    cartOpen: false
+    cartOpen: false,
+    totalProductPrice: undefined
 })

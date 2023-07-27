@@ -14,7 +14,7 @@
                                 <span>${{ price }}</span>
                                 <div v-if="store.quantityAdded > 1" class="quantity-added">
                                     <span class="ps-1">x {{ store.quantityAdded }}</span>
-                                    <span class="ps-2 fw-semibold text-black">${{ this.qtyTotalPrice }} </span>
+                                    <span class="ps-2 fw-semibold text-black">${{ store.totalProductPrice }} </span>
                                 </div>
                             </div>
                         </div>
@@ -39,15 +39,8 @@ export default {
         }
     },
     methods: {
-        totalCalculator() {
-            for(let i = 0; i < store.cart.length; i++) {
-                this.qtyTotalPrice = (store.cart[i].price * store.quantityAdded).toFixed(2)
-            }
-        }
+        
     },
-    mounted() {
-        this.totalCalculator()
-    }
 }
 </script>
 

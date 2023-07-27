@@ -1,7 +1,7 @@
 <template>
     <div v-for="(product, index) in store.products" class="d-flex justify-content-center">
         <div class="row container-lg d-flex justify-content-center align-items-center">
-            <div class="col-12 col-xxl-6">
+            <div class="col-12 col-xxl-6 p-0">
                 <SliderComponent :image="product.images[this.index]" @next-image="goNext" @previous-image="goBack" @selected="currentImage" />
             </div>
             <div class="col-12 col-xxl-6">
@@ -50,7 +50,8 @@ export default {
             store,
             index: 0,
             discountPrice: undefined,
-            quantityChoosed: 0
+            quantityChoosed: 0,
+            qtyTotalPrice: 0,
         }
     },
     methods: {
@@ -82,7 +83,7 @@ export default {
         discountCalculator() {
             for (let i = 0; i < store.products.length; i++) {
                 this.discountPrice = (store.products[i].price * store.products[i].discount / 100).toFixed(2);
-                store.products[i].price = this.discountPrice
+                store.products[i].finalPrice = this.discountPrice
             }
         },
         chooseQuantity(qty) {
@@ -111,7 +112,13 @@ export default {
                     }
                 })
             }
+            this.totalCalculator()
             console.log(store.cart)
+        },
+        totalCalculator() {
+            for(let i = 0; i < store.cart.length; i++) {
+                store.totalProductPrice = (store.cart[i].finalPrice * store.quantityAdded).toFixed(2)
+            }
         }
     },
     mounted() {
@@ -169,7 +176,7 @@ h6 {
     }
 }
 @media screen and (max-width: 576px) {
-    .row, .col-12{
+    .row{
         margin: 0 !important;
         padding: 0 !important;
     }
