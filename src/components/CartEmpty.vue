@@ -32,6 +32,12 @@ export default {
 .cart {
     width: 95%;
     height: 30vh;
+    @media screen and (min-width: 768px) {
+        width: 70%;
+    }
+    @media screen and (min-width: 1440px) {
+        width: 20%;
+    }
 }
 h6{
     color: $dark-grayish-blue;

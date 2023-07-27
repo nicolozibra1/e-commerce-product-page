@@ -36,5 +36,8 @@ import CartEmpty from './components/CartEmpty.vue';
     .cart{
       position: absolute;
       top: 10%;
+      @media screen and (min-width: 1440px) {
+        right: 10%;
+      }
     }
 </style>
