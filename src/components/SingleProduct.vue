@@ -154,12 +154,13 @@ h6 {
     background-color: $light-grayish-blue;
     border-radius: 10px;
 
-    .add,
-    .subtract {
+    .add, .subtract {
         font-size: 30px;
         font-weight: 700;
         color: $orange;
-
+        &:hover{
+            cursor: pointer;
+        }
     }
 }
 

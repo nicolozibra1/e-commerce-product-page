@@ -22,7 +22,7 @@
                     <img src="img/logo.svg" alt="logo">
                 </div>
                 <div class="navbar-desk d-none">
-                    <ul class="d-flex text-capitalize list-unstyled gap-4 m-0">
+                    <ul class="d-flex align-content-center text-capitalize list-unstyled m-0 h-100">
                         <li>collections</li>
                         <li>men</li>
                         <li>women</li>
@@ -34,7 +34,7 @@
             <div class="d-flex align-items-center gap-3">
                 <div class="cart" @click="toggleCart">
                     <img src="img/icon-cart.svg" alt="cart">
-                    <BadgeCounter :count="store.quantityAdded" class="badge" />
+                    <BadgeCounter v-if="store.quantityAdded > 0" :count="store.quantityAdded" class="badge" />
                 </div>
                 <div class="user-picture d-flex align-items-center pt-1">
                     <img src="img/image-avatar.png" alt="avatar" class="w-100">
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { store } from '../data/store'
+import { store } from '../data/store';
 import BadgeCounter from './BadgeCounter.vue';
 
     export default {
@@ -74,11 +74,27 @@ import BadgeCounter from './BadgeCounter.vue';
 
 <style lang="scss" scoped>
 @use '../assets/styles/partials/variables' as *;
-    .debug{
-        border: 1px solid red;
+    ul{
+        li{
+            &:hover{
+                color: $black;
+                cursor: pointer;
+                transition: color 0.5s;
+            }
+        }
     }
     .cart{
         position: relative;
+        &:hover{
+            cursor: pointer;
+            scale: 1.2;
+            transition: scale 0.5s;
+        }
+        img{
+            &:hover{
+                filter: brightness(0);
+            }        
+        }
         .badge{
             position: absolute;
             left: 50%;
@@ -87,6 +103,15 @@ import BadgeCounter from './BadgeCounter.vue';
     .user-picture{
         max-width: 25px;
         max-height: 25px;
+        img{
+            border: 2px solid transparent;
+            border-radius: 50%;
+            &:hover{
+                cursor: pointer;
+                border: 2px solid $orange;
+                transition: border 0.5s;
+            }
+        }   
     }
     .menu-open{
         background-color: white;
@@ -112,8 +137,20 @@ import BadgeCounter from './BadgeCounter.vue';
             display: none;
         }
         .navbar-desk{
-            display: inline-block !important;
             color: $dark-grayish-blue;
+            height: 100px;
+            display: flex !important;
+            align-items: center !important;
+            li{ 
+                padding: 0 20px;
+                display: flex;
+                align-items: center;         
+                border: 2px solid transparent;
+                &:hover{
+                    border-bottom: 2px solid $orange;
+                    transition: border-bottom 0.3s ease-in-out;
+                }
+            }
         }
         .user-picture{
             max-width: 50px;
@@ -126,11 +163,12 @@ import BadgeCounter from './BadgeCounter.vue';
     }
     @media screen and (min-width: 1440px) {
         header{
-            padding: 20px 0;
+            padding: 0;
             border-bottom: 1px solid $grayish-blue;
         }
         nav{
-            padding: 20px 0 !important;
+            height: 100px;
+            padding: 0 !important;
         }
     }
 </style>

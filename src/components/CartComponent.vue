@@ -68,6 +68,9 @@ export default {
         .icon{
             width: 15px;
             height: 20px;
+            &:hover{
+                cursor: pointer;
+            }
         }
     }
     .checkout{

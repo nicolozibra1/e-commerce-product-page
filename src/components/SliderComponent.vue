@@ -114,6 +114,9 @@ import {store} from '../data/store.js'
                 height: 100%;
                 object-fit: cover;
                 object-position: center;
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
         .icon{
@@ -147,6 +150,10 @@ import {store} from '../data/store.js'
             img{
                 width: 100%;
                 height: 100%;
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.70;
+                }
             }
         }
         .selected{
@@ -182,6 +189,9 @@ import {store} from '../data/store.js'
             border-radius: 20px;
         }
         .close{
+            &:hover{
+                cursor: pointer;
+            }
             @media screen and (max-height: 850px ) {
                 position: absolute;
                 right: 0;
@@ -190,6 +200,9 @@ import {store} from '../data/store.js'
                 width: 25px;
                 height: 25px;
                 filter: brightness(0) invert(1);
+                &:hover{
+                    filter: sepia(100%) hue-rotate(-25deg);
+                }
             }
         }
         .icon{
@@ -210,12 +223,15 @@ import {store} from '../data/store.js'
                 height: 60px;
                 background-color: white;
                 border-radius: 50%;
-                @media screen and (max-height: 850px) {
-                    transform: rotate(90deg);
-                    margin: 0 !important;
+                &:hover{
+                    cursor: pointer;
                 }
                 img{
                     width: 25%;
+                }
+                @media screen and (max-height: 850px) {
+                    transform: rotate(90deg);
+                    margin: 0 !important;
                 }
             }
         }
@@ -235,6 +251,10 @@ import {store} from '../data/store.js'
             img{
                 width: 100%;
                 height: 100%;
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.70;
+                }
             }
         }
         .selected{
