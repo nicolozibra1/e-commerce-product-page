@@ -34,6 +34,7 @@
             <div class="d-flex align-items-center gap-3">
                 <div class="cart" @click="toggleCart">
                     <img src="img/icon-cart.svg" alt="cart">
+                    <BadgeCounter :count="store.quantityAdded" class="badge" />
                 </div>
                 <div class="user-picture d-flex align-items-center pt-1">
                     <img src="img/image-avatar.png" alt="avatar" class="w-100">
@@ -45,9 +46,13 @@
 
 <script>
 import { store } from '../data/store'
+import BadgeCounter from './BadgeCounter.vue';
 
     export default {
         name: 'HeaderComponent',
+        components: {
+            BadgeCounter
+        },
         data() {
             return{
                 store,
@@ -71,6 +76,13 @@ import { store } from '../data/store'
 @use '../assets/styles/partials/variables' as *;
     .debug{
         border: 1px solid red;
+    }
+    .cart{
+        position: relative;
+        .badge{
+            position: absolute;
+            left: 50%;
+        }
     }
     .user-picture{
         max-width: 25px;

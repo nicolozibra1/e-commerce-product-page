@@ -43,7 +43,7 @@ import SliderComponent from './SliderComponent.vue';
 export default {
     name: 'SingleProduct',
     components: {
-        SliderComponent
+        SliderComponent,
     },
     data() {
         return {

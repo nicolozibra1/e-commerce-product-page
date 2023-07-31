@@ -41,6 +41,7 @@ export default {
     methods: {
         removeProduct(index) {
             store.cart.splice(index, 1);
+            store.quantityAdded = 0;
         }
     },
 }
