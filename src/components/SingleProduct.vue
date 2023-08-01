@@ -2,7 +2,8 @@
     <div v-for="(product, index) in store.products" class="d-flex justify-content-center">
         <div class="row container-lg d-flex justify-content-center align-items-center">
             <div class="col-12 col-xxl-6 p-0">
-                <SliderComponent :image="product.images[this.index]" @next-image="goNext" @previous-image="goBack" @selected="currentImage" />
+                <SliderComponent :image="product.images[this.index]" @next-image="goNext" @previous-image="goBack"
+                    @selected="currentImage" />
             </div>
             <div class="col-12 col-xxl-6">
                 <div class="product-info p-3">
@@ -21,16 +22,18 @@
                         <span class="text-decoration-line-through fw-semibold">${{ product.price }}</span>
                     </div>
                 </div>
-                <div class="quantity-selector mt-4 mx-3 px-3 py-1 d-flex align-items-center justify-content-between">
-                    <span class="subtract" @click="chooseQuantity('decrease')">-</span>
-                    <span class="fw-semibold">{{ this.quantityChoosed }}</span>
-                    <span class="add" @click="chooseQuantity('increase')">+</span>
-                </div>
-                <div class="add2cart d-flex justify-content-center align-items-center mx-3 mt-3">
-                    <button class="btn text-white" @click="addToCart(product, product.id)">
-                        <img src="img/icon-cart.svg" alt="icon-cart">
-                        Add to cart
-                    </button>
+                <div class="add-container">
+                    <div class="quantity-selector mt-4 mx-3 px-3 py-1 d-flex align-items-center justify-content-between">
+                        <span class="subtract" @click="chooseQuantity('decrease')">-</span>
+                        <span class="fw-semibold">{{ this.quantityChoosed }}</span>
+                        <span class="add" @click="chooseQuantity('increase')">+</span>
+                    </div>
+                    <div class="add2cart d-flex justify-content-center align-items-center mx-3 mt-3">
+                        <button class="btn text-white" @click="addToCart(product, product.id)">
+                            <img src="img/icon-cart.svg" alt="icon-cart">
+                            Add to cart
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,12 +102,12 @@ export default {
         },
         addToCart(product, id) {
             store.quantityAdded = this.quantityChoosed
-            if(store.cart.length === 0) {
+            if (store.cart.length === 0) {
                 store.cart.push(product)
             }
-            else if(store.cart.length > 0) {
+            else if (store.cart.length > 0) {
                 store.cart.forEach(item => {
-                    if(item.id === id) {
+                    if (item.id === id) {
                         console.log('non aggiungo altro ci sono già')
                     }
                     else {
@@ -116,7 +119,7 @@ export default {
             console.log(store.cart)
         },
         totalCalculator() {
-            for(let i = 0; i < store.cart.length; i++) {
+            for (let i = 0; i < store.cart.length; i++) {
                 store.totalProductPrice = (store.cart[i].finalPrice * store.quantityAdded).toFixed(2)
             }
         }
@@ -154,11 +157,13 @@ h6 {
     background-color: $light-grayish-blue;
     border-radius: 10px;
 
-    .add, .subtract {
+    .add,
+    .subtract {
         font-size: 30px;
         font-weight: 700;
         color: $orange;
-        &:hover{
+
+        &:hover {
             cursor: pointer;
         }
     }
@@ -170,25 +175,39 @@ h6 {
         width: 100%;
         padding: 14px 0;
         border-radius: 10px;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+        &:hover{
+            background: hsl(26, 98%, 69%);
+        }
     }
 
     img {
         filter: brightness(0) invert(1);
     }
 }
+
 @media screen and (max-width: 576px) {
-    .row{
+    .row {
         margin: 0 !important;
         padding: 0 !important;
     }
 }
 
 @media screen and (min-width: 1440px) {
-    .row{
+    .row {
         height: calc(100vh - 125px);
-        .col-xxl-6{
+
+        .col-xxl-6 {
             padding: 0 50px;
         }
     }
-}
-</style>
+    .add-container{
+        display: flex;
+        .quantity-selector{
+            width: 35%;
+        }
+        .add2cart{
+            width: 65%;
+        }
+    }
+}</style>

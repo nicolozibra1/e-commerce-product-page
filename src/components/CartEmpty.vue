@@ -1,6 +1,6 @@
 <template>
     <div class="cart">
-        <div class="card rounded-3">
+        <div class="card border-light rounded-3">
             <div class="card-header bg-white d-flex align-items-center p-3">
                 <h6 class="text-capitalize fw-semibold m-0">cart</h6>
             </div>
@@ -38,6 +38,9 @@ export default {
     @media screen and (min-width: 1440px) {
         width: 20%;
     }
+}
+.card{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 20px 40px, rgba(17, 17, 26, 0.1) 0px 24px 40px;
 }
 h6{
     color: $dark-grayish-blue;

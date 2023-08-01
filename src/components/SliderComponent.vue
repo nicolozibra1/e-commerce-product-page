@@ -5,10 +5,10 @@
         </div>
         <div class="icon d-flex justify-content-between">
             <div @click="goBack" class="previous d-flex justify-content-center align-items-center ms-3">
-                <img src="img/icon-previous.svg" alt="previous">
+                <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
             </div>
             <div @click="goNext" class="next d-flex justify-content-center align-items-center me-3">
-                <img src="img/icon-next.svg" alt="next">
+                <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
             </div>
         </div>
     </div>
@@ -22,17 +22,17 @@
     
     <div class="slider-fullscreen d-none" v-if="this.fullscreen">
         <div class="close d-flex justify-content-end mb-3">
-            <img src="img/icon-close.svg" alt="icon-close" @click="toggleFullscreen" >
+            <svg @click="toggleFullscreen" width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#ffffff" fill-rule="evenodd"/></svg>
         </div>
         <div class="box-image">
             <img :src="'img/' + image">
         </div>
         <div class="icon d-flex justify-content-between">
             <div @click="goBack(index)" class="previous d-flex justify-content-center align-items-center ms-3">
-                <img src="img/icon-previous.svg" alt="previous">
+                <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
             </div>
             <div @click="goNext(index)" class="next d-flex justify-content-center align-items-center me-3">
-                <img src="img/icon-next.svg" alt="next">
+                <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
             </div>
         </div>
         <div class="thumbnail-fullscreen w-100">
@@ -101,7 +101,7 @@ import {store} from '../data/store.js'
         position: relative;
         .box-image{
             width: 100%;
-            height: 35vh;
+            height: 40vh;
             overflow: hidden;
             @media screen and (min-width: 576px) {
                 height: 55vh;
@@ -113,7 +113,7 @@ import {store} from '../data/store.js'
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: center;
+                object-position: top;
                 &:hover{
                     cursor: pointer;
                 }
@@ -132,8 +132,8 @@ import {store} from '../data/store.js'
                 height: 40px;
                 background-color: white;
                 border-radius: 50%;
-                img{
-                    width: 25%;
+                &:hover path{
+                    stroke: #ff7d1a;
                 }
             }
         }
@@ -179,7 +179,7 @@ import {store} from '../data/store.js'
         transform: translate(-50%, -50%);
         z-index: 9999;
         padding: 40px;
-        @media screen and (max-height: 850px ) {
+        @media screen and (max-height: 850px ) and (min-width: 1440px) {
             display: flex !important;
         }
         img{
@@ -189,9 +189,17 @@ import {store} from '../data/store.js'
             border-radius: 20px;
         }
         .close{
+            scale: 1.2;
             &:hover{
                 cursor: pointer;
             }
+            svg{
+                &:hover path{
+                    stroke: #ff7d1a;
+                    fill: #ff7d1a;
+                }
+            }
+           
             @media screen and (max-height: 850px ) {
                 position: absolute;
                 right: 0;
@@ -226,8 +234,8 @@ import {store} from '../data/store.js'
                 &:hover{
                     cursor: pointer;
                 }
-                img{
-                    width: 25%;
+                &:hover path{
+                    stroke: #ff7d1a;
                 }
                 @media screen and (max-height: 850px) {
                     transform: rotate(90deg);
