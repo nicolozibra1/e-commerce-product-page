@@ -43,6 +43,9 @@
 <script>
 import { store } from '../data/store.js';
 import SliderComponent from './SliderComponent.vue';
+import { useToast } from 'vue-toastification';
+const toast = useToast();
+
 export default {
     name: 'SingleProduct',
     components: {
@@ -116,6 +119,9 @@ export default {
                 })
             }
             this.totalCalculator()
+            const toast = useToast();
+            toast.success('Product added successfully', {timeout: 1500});
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             console.log(store.cart)
         },
         totalCalculator() {

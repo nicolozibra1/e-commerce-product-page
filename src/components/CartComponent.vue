@@ -29,6 +29,8 @@
 
 <script>
 import { store } from '../data/store.js';
+import { useToast } from 'vue-toastification';
+const toast = useToast();
 export default {
     name: 'CartComponent',
     props: ['image', 'name', 'price'],
@@ -42,6 +44,8 @@ export default {
         removeProduct(index) {
             store.cart.splice(index, 1);
             store.quantityAdded = 0;
+            const toast = useToast();
+            toast.error('Product delete', {timeout: 1500});
         }
     },
 }
