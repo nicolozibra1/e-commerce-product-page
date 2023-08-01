@@ -30,7 +30,7 @@ Users should be able to:
 ![](./public/img/screenshots/Desktop-CartOpen.png)
 # 
 ## Desktop Slider Open
-![](./public/img/screenshots/Desktop-sliderActive.png)
+![](./public/img/screenshots/Desktop-SliderActive.png)
 #  
 ## Mobile 375px
 ![](./public/img/screenshots/mobile-version.jpg)
@@ -41,7 +41,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub Repository](https://github.com/nicolozibra1/intro-dropdown-navigation)
+- Solution URL: [GitHub Repository](https://github.com/nicolozibra1/e-commerce-product-page#desktop-slider-open)
 - Live Site URL: [SNEAKERS - E-commerce Product Page](https://e-commerce-product-page-blue.vercel.app/)
 
 ## My process
