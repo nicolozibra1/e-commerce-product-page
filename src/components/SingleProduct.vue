@@ -30,7 +30,7 @@
                     </div>
                     <div class="add2cart d-flex justify-content-center align-items-center mx-3 mt-3">
                         <button class="btn text-white" @click="addToCart(product, product.id)">
-                            <img src="img/icon-cart.svg" alt="icon-cart">
+                            <img src="/img/icon-cart.svg" alt="icon-cart">
                             Add to cart
                         </button>
                     </div>

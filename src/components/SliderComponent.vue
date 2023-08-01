@@ -1,7 +1,7 @@
 <template>
     <div class="slider">
         <div class="box-image">
-            <img :src="'img/' + image" @click="toggleFullscreen">
+            <img :src="'/img/' + image" @click="toggleFullscreen">
         </div>
         <div class="icon d-flex justify-content-between">
             <div @click="goBack" class="previous d-flex justify-content-center align-items-center ms-3">
@@ -15,7 +15,7 @@
     <div class="thumbnail d-none w-100">
         <div class="d-flex justify-content-between mt-5" v-for="product in store.products">
             <div class="box-thumb" :class="{'selected' : store.imageSelected === index}" v-for="(item,index) in product.images" @click="currentImage(index)">
-                <img :src="'img/' + item" :alt="product.name">
+                <img :src="'/img/' + item" :alt="product.name">
             </div>
         </div>
     </div>
@@ -25,7 +25,7 @@
             <svg @click="toggleFullscreen" width="14" height="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#ffffff" fill-rule="evenodd"/></svg>
         </div>
         <div class="box-image">
-            <img :src="'img/' + image">
+            <img :src="'/img/' + image">
         </div>
         <div class="icon d-flex justify-content-between">
             <div @click="goBack(index)" class="previous d-flex justify-content-center align-items-center ms-3">
@@ -38,7 +38,7 @@
         <div class="thumbnail-fullscreen w-100">
             <div class="box-container d-flex justify-content-center gap-4 mt-5" v-for="product in store.products">
                 <div class="box-thumb" :class="{'selected' : store.imageSelected === index}" v-for="(item,index) in product.images" @click="currentImage(index)">
-                    <img :src="'img/' + item" :alt="product.name">
+                    <img :src="'/img/' + item" :alt="product.name">
                 </div>
             </div>
         </div>

@@ -7,7 +7,7 @@
             <div class="card-body p-4">
                 <div class="row my-3" v-if="store.cart.length > 0">
                     <div class="col-12 product d-flex justify-content-between align-items-center">
-                        <img :src="'img/' + image" :alt="name">
+                        <img :src="'/img/' + image" :alt="name">
                         <div class="product-detail">
                             <span class="product-name">{{ name }}</span>
                             <div class="product-price d-flex">
@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="img/icon-delete.svg" alt="icon-delete" class="icon" @click="removeProduct(index)">
+                        <img src="/img/icon-delete.svg" alt="icon-delete" class="icon" @click="removeProduct(index)">
                     </div>
                 </div>
                 <button class="btn checkout text-capitalize text-white fw-semibold my-2">checkout</button>
@@ -46,6 +46,11 @@ export default {
             store.quantityAdded = 0;
             const toast = useToast();
             toast.error('Product delete', {timeout: 1500});
+            if(store.cartOpen === true && store.cart.length === 0) {
+                setTimeout(() => {
+                    store.cartOpen = false; 
+                }, 1500);
+            }
         }
     },
 }

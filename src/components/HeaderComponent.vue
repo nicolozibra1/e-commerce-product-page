@@ -3,10 +3,10 @@
         <nav class="d-flex justify-content-between align-items-center p-4">
             <div class="d-flex align-items-center gap-3">
                 <div class="hamburger">
-                    <img src="img/icon-menu.svg" alt="hamburger-menu" v-if="this.menuOpen === false" @click="toggleMenu">
+                    <svg v-if="this.menuOpen === false" @click="toggleMenu" width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z" fill="#69707D" fill-rule="evenodd"/></svg>
                     <div v-if="this.menuOpen === true">
                         <div class="menu-open">
-                            <img src="img/icon-close.svg" alt="icon-close" class="mb-5 mt-2 ms-2" @click="toggleMenu">
+                            <img src="/img/icon-close.svg" alt="icon-close" class="mb-5 mt-2 ms-2" @click="toggleMenu">
                             <ul class="d-flex flex-column fw-semibold text-capitalize list-unstyled gap-4 mb-0 ms-2">
                                 <li>collections</li>
                                 <li>men</li>
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="box-logo d-flex align-items-center" v-if="this.menuOpen === false">
-                    <img src="img/logo.svg" alt="logo">
+                    <img src="/img/logo.svg" alt="logo">
                 </div>
                 <div class="navbar-desk d-none">
                     <ul class="d-flex align-content-center text-capitalize list-unstyled m-0 h-100">
@@ -33,11 +33,11 @@
             </div>
             <div class="d-flex align-items-center gap-3">
                 <div class="cart" @click="toggleCart">
-                    <img src="img/icon-cart.svg" alt="cart">
+                    <img src="/img/icon-cart.svg" alt="cart">
                     <BadgeCounter v-if="store.quantityAdded > 0" :count="store.quantityAdded" class="badge" />
                 </div>
                 <div class="user-picture d-flex align-items-center pt-1">
-                    <img src="img/image-avatar.png" alt="avatar" class="w-100">
+                    <img src="/img/image-avatar.png" alt="avatar" class="w-100">
                 </div>
             </div>
         </nav>
